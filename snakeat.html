@@ -1,0 +1,23 @@
+﻿<!doctype html>
+<html>
+<body>
+    <canvas id="can" width="400" height="400" style="background:Black"></canvas>
+  
+    <script src="snake.js"></script>
+    <script src="place.js"></script>
+    <script src="game.js"></script>
+    <script>
+        var newPlace = new Place();
+        var newGame = new Game();
+        newGame.renderCtx = document.getElementById("can").getContext("2d");
+        newGame.place = newPlace;
+
+        document.onkeydown = function (e) {
+            newGame.onKeyDown(e);
+        }
+
+        newGame.start();
+
+    </script>
+</body>
+</html>
