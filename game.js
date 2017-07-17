@@ -55,7 +55,7 @@ Game.prototype.run = function () {
     var self = this;
     this.timerId = setTimeout(function() {
         self.run();
-    }, 1300);
+    }, 130);
 
     return true;
 }
