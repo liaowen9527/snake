@@ -3,6 +3,7 @@
     this.place = new Place();
     this.snake = null;
     this.food = null;
+	this.timerId = null;
 }
 
 Game.prototype.onKeyDown = function (e) {
@@ -18,6 +19,12 @@ Game.prototype.onKeyDown = function (e) {
     } else if ("ArrowDown" === e.key) {
         this.snake.down();
     }
+	
+	if(null != this.timerId){
+		clearTimeout(this.timerId);		
+	}
+	
+	this.run();
 }
 
 Game.prototype.start = function () {
@@ -46,9 +53,9 @@ Game.prototype.run = function () {
     this.render();
 
     var self = this;
-    setTimeout(function() {
+    this.timerId = setTimeout(function() {
         self.run();
-    }, 130);
+    }, 1300);
 
     return true;
 }
